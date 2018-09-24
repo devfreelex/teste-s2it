@@ -1,0 +1,44 @@
+.character-card {
+    display: block;
+    float:left;
+    width:100%;
+    padding:15px;
+    border: 2px #ebebeb solid;
+    border-radius: 3px;
+    text-align: center;
+    background:#fff
+}
+
+.character-card-img {
+    display: inline-block;
+    width:75px;
+    height: 75px;
+    border-radius: 100px;
+    margin-bottom:15px;
+}
+
+.character-img {
+    width:100%;
+}
+
+.character-input {
+    width:100%;
+    display: inline;
+    padding: 15px;
+    border:0;
+    border-bottom:2px #ebebeb solid;
+    border-radius: 3px;
+    outline: none;
+}
+
+.character-input::placeholder {
+    text-align: center
+}
+
+.character-button {
+    display: inline-block;
+    padding:15px;
+    text-decoration: none;
+    font-size: .875em;
+    color:#666;
+}

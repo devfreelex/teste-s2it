@@ -1,0 +1,19 @@
+.title-page {
+    display: block;
+    float:left;
+    width:100%;
+    font-size:3em;
+}
+
+.title-page-span {
+    display: block;
+    float:left;
+    padding-top:7.5px;
+}
+
+.title-page-icon {
+    display: block;
+    float: left;
+    width:60px;
+}
+
