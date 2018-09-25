@@ -18,13 +18,14 @@ export class TimerComponent implements OnInit {
 
   ngOnInit() {
 
-    this.timeService.timeChange.subscribe( value => {
+    this.timeService.timeChange.subscribe(value => {
       this.timer = value;
     });
 
-    this.timeService.stateTimer.subscribe( value => {
+    this.timeService.stateTimer.subscribe(value => {
       this.status = value;
       this.timeService.showScore.next(true);
     });
 
+  }
 }

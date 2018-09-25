@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TimerService } from '../../services/timer.service';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'c-start',
@@ -10,7 +11,10 @@ export class StartComponent implements OnInit {
 
 
 
-  constructor(private timerService: TimerService) { }
+  constructor(
+    private timerService: TimerService,
+    private gameService: GameService
+    ) { }
 
   start () {
     this.timerService.setStatusGame();
@@ -19,6 +23,7 @@ export class StartComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

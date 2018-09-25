@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Store, Select } from '@ngxs/store';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Character } from '../../models/character.model';
 import { ToggleModalService } from '../../services/toggle-modal.service';
+import { setContextDirty } from '@angular/core/src/render3/styling';
+import { GameService } from '../../services/game.service';
 
 
 @Component({
@@ -15,13 +16,59 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   @Input()
   character: Character;
+
+  characterName: string;
   subscription: Subscription;
 
-  constructor(private toggleModal: ToggleModalService) {}
+  private score: number;
+  private bigPointing = 10;
+  private littlePointing = 5;
+  private lessPoint = 0;
+  private helpStatus: boolean;
+
+  constructor(
+    private toggleModal: ToggleModalService,
+    private gameService: GameService
+    ) {
+    this.score = 0;
+    this.helpStatus = false;
+  }
 
   showDetail () {
     this.toggleModal.toggle(this.character);
+    this.setSatatusHelped();
     return false;
+  }
+
+  isNameCorrect () {
+
+    const isEqualNames = this.isEqualNames(this.characterName, this.character.name);
+
+    if (!isEqualNames) {
+      this.setScore(this.lessPoint);
+      return;
+    }
+
+    if (isEqualNames && !this.helpStatus) {
+      console.log('chegando aqui', this.helpStatus);
+      this.setScore(this.bigPointing);
+      return;
+    }
+
+    this.setScore(this.littlePointing);
+  }
+
+  setScore (score: number) {
+    this.score = score;
+    this.gameService.updateScoreBoard(this.character.name, this.score);
+  }
+
+  isEqualNames (firstName: string, lastName: string) {
+    return firstName === lastName;
+  }
+
+  setSatatusHelped () {
+    this.helpStatus = true;
   }
 
   ngOnInit() {}

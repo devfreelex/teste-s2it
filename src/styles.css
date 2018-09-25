@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -14,8 +14,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -26,7 +26,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -61,4 +61,12 @@ table {
 .x2 { grid-template-columns: 1fr 1fr; }
 .x4 { grid-template-columns: repeat(4, 1fr); }
 .gutter { padding:15px }
+
+.ng-dirty.is--invalid {
+  border-color:#ec0f0f !important
+}
+
+.ng-dirty.is--valid {
+  border-color:#00ff95 !important
+}
 

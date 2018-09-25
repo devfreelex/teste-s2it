@@ -4,7 +4,12 @@
   </div>
   <div class="controlls">
       <div class="character-name">
-          <input type="text" class="character-input" placeholder="Nome do personagem?">
+          <input
+          type="text"
+          class="character-input"
+          placeholder="Nome do personagem?"
+          [(ngModel)]="characterName"
+          (blur)="isNameCorrect()">
         </div>
         <a href="" class="character-button" (click)="showDetail()"> + Detalhes</a>
   </div>

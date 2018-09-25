@@ -115,7 +115,8 @@
     transition: .5s;
 }
 
-.modal-form-input:focus + .modal-form-span {
+.modal-form-input:focus + .modal-form-span,
+.has--value {
     top:-10px;
     left:0;
 }
