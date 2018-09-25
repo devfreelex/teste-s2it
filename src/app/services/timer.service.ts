@@ -16,7 +16,7 @@ export class TimerService {
   private statusGame: boolean;
 
   constructor() {
-    this.limitTime = 5;
+    this.limitTime = 120;
     this.timer = this.limitTime;
     this.stateTimer = new Subject<boolean>();
     this.timeChange = new Subject<number>();
