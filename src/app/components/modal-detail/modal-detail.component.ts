@@ -11,6 +11,8 @@ import { forkJoin, Subscription } from 'rxjs';
 })
 export class ModalDetailComponent implements OnInit, OnDestroy {
   subscription: Subscription;
+
+  planet = '';
   hairColor: any;
   height: any;
   films: any;
@@ -29,6 +31,7 @@ export class ModalDetailComponent implements OnInit, OnDestroy {
   }
 
   hideModal () {
+    this.planet = '';
     this.hairColor = [];
     this.height = [];
     this.isVisible = false;
@@ -41,6 +44,7 @@ export class ModalDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.toggleModalService.character.subscribe( value => {
       this.setCharacter(value);
+      this.getPlanet(value);
       this.getVehicles(value);
       this.getFilms(value);
       this.getSpecies(value);
@@ -83,6 +87,14 @@ export class ModalDetailComponent implements OnInit, OnDestroy {
 
     });
   }
+
+
+  getPlanet (data: Character): void {
+    this.httpClient.get(data['homeworld']).subscribe( planet => {
+      this.planet = planet['name'];
+    });
+  }
+
 
   setCharacter (data: Character) { console.log(data)
     this.hairColor = data['hair_color'];
