@@ -1,5 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+
+
 
 import { AppComponent } from './components/app.component';
 import { StartComponent } from './components/start/start.component';
@@ -10,6 +17,7 @@ import { PaginavComponent } from './components/paginav/paginav.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { ModalDetailComponent } from './components/modal-detail/modal-detail.component';
 import { ModalFinishComponent } from './components/modal-finish/modal-finish.component';
+import { CharacterService } from './services/character.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +32,8 @@ import { ModalFinishComponent } from './components/modal-finish/modal-finish.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

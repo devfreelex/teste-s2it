@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterModel} from '../../models/character.model';
+import { Observable } from 'rxjs';
+import { CharacterService } from '../../services/character.service';
 
 @Component({
   selector: 'app-game',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  characters: Observable<CharacterModel[]>;
+
+  constructor(
+    private characterServie: CharacterService
+    ) {}
+
+  readCharacters(): void {
+    this.characterServie.getData('people').subscribe( state => {
+      this.characters = state['results'];
+    });
+  }
 
   ngOnInit() {
+    this.readCharacters();
   }
 
 }

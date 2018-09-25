@@ -1,4 +1,5 @@
 <div class="character-card">
+  <h2>{{character.name}}</h2>
   <div class="character-card-img">
     <img src="../../../assets/images/head-dart-vader.png" class="character-img">
   </div>
@@ -6,6 +7,6 @@
       <div class="character-name">
           <input type="text" class="character-input" placeholder="Nome do personagem?">
         </div>
-        <a href="" class="character-button"> + Detalhes</a>
+        <a href="" class="character-button" (click)="showDetail()"> + Detalhes</a>
   </div>
 </div>
