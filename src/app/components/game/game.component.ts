@@ -12,6 +12,7 @@ import { TimerService } from '../../services/timer.service';
 export class GameComponent implements OnInit, OnDestroy {
 
   characters: Observable<CharacterModel[]>;
+  statusLoader: boolean;
 
   constructor(
     private characterService: CharacterService,
@@ -38,7 +39,14 @@ export class GameComponent implements OnInit, OnDestroy {
     }
   }
 
+  startLoader () {
+    this.characterService.statusLoader.subscribe( value => {
+      this.statusLoader = value;
+    });
+  }
+
   ngOnInit() {
+    this.startLoader();
     this.isValidStatusGame();
     this.readCharacters();
     this.pagination();

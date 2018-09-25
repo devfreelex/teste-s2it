@@ -4,6 +4,7 @@ import { Character } from '../../models/character.model';
 import { ToggleModalService } from '../../services/toggle-modal.service';
 import { setContextDirty } from '@angular/core/src/render3/styling';
 import { GameService } from '../../services/game.service';
+import { CharacterService } from '../../services/character.service';
 
 
 @Component({
@@ -25,13 +26,16 @@ export class CharacterComponent implements OnInit, OnDestroy {
   private littlePointing = 5;
   private lessPoint = 0;
   private helpStatus: boolean;
+  statusLoader = false;
 
   constructor(
     private toggleModal: ToggleModalService,
-    private gameService: GameService
+    private gameService: GameService,
+    private characterService: CharacterService
     ) {
     this.score = 0;
     this.helpStatus = false;
+    this.characterService.statusLoader.next(false);
   }
 
   showDetail () {
@@ -73,8 +77,6 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   ngOnInit() {}
 
-  ngOnDestroy() {
-    // this.subscription.unsubscribe();
-  }
+  ngOnDestroy() {}
 
 }

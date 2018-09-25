@@ -10,6 +10,7 @@ import { Character } from '../../models/character.model';
 })
 export class PaginavComponent implements OnInit {
 
+  statusLoader = true;
 
   constructor(private characterService: CharacterService) {}
 
@@ -24,6 +25,9 @@ export class PaginavComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.characterService.statusLoader.subscribe(value => {
+      this.statusLoader = value;
+    });
   }
 
 }

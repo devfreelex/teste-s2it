@@ -2,17 +2,20 @@
     display: block;
     float:left;
     width:100%;
-    position: fixed;
-    bottom:0;
-    left:50%;
-    transform: translateX(-50%);
-    background:#000;
+    background:#fff;
     text-align: center;
 }
 .paginav-link {
     display: inline-block;
     padding:15px;
-    color:#fff;
+    color:#320b70;
     text-decoration:none;
     font-size:.875em;
+}
+
+.fix--bottom {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
 }

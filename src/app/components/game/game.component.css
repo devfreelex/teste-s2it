@@ -17,3 +17,24 @@
     width:60px;
 }
 
+.loading-page {
+  display: none;
+  position: fixed;
+  top:50%;
+  left:calc(50% - 25px);
+  transform: translate(-50%, -50%)
+}
+
+.loading-page.is--visible {
+  display: block;
+}
+
+.is--hidden {
+  display: none !important;
+}
+
+@media all and (max-width:480px) {
+  .title-page { font-size: 1.8em; padding-left:15px;}
+  .title-page-span {position:relative; top:12px;}
+}
+

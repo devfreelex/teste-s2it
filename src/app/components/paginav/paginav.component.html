@@ -1,4 +1,4 @@
-<div class="paginav">
+<div class="paginav" [ngClass]="{'fix--bottom': statusLoader}">
   <a href="" class="paginav-link" (click)="pagePrev()"><i class="fa fa-angle-double-left"></i> Anterior</a>
   <a href="" class="paginav-link" (click)="pageNext()"> Próximo <i class="fa fa-angle-double-right"></i></a>
 </div>

@@ -7,9 +7,11 @@
 </div>
 
 <div class="grid x4 gutter">
-    <c-character *ngFor="let character of characters " [character]="character"></c-character>
+    <c-character *ngFor="let character of characters " [character]="character" [ngClass]="{'is--hidden': statusLoader}"></c-character>
 </div>
 
 <c-paginav></c-paginav>
 <c-modal-detail></c-modal-detail>
 <c-modal-finish></c-modal-finish>
+
+<i class="fa fa-spinner fa-pulse fa-3x fa-fw loading-page" [ngClass]="{'is--visible': statusLoader}"></i>

@@ -70,3 +70,14 @@ table {
   border-color:#00ff95 !important
 }
 
+@media all and (max-width:980px) {
+  .x4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media all and (max-width:480px) {
+  body {
+    min-width:480px;
+    overflow: hidden;
+  }
+  .x4 { grid-template-columns: 1fr; }
+}
