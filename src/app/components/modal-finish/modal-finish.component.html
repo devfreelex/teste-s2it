@@ -1,6 +1,6 @@
-<div class="modal">
+<div class="modal" [ngClass]="{'is--visible': status}">
   <div class="modal-title">Quiz Finalizado!</div>
-  <i class="fa fa-close modal-icon"></i>
+  <i class="fa fa-close modal-icon" (click)="closeModal()"></i>
 
   <div class="modal-score">35 <span class="modal-text">pontos</span></div>
 

@@ -1,4 +1,5 @@
-<div class="timer">
+<div class="timer" [ngClass]="{'is--finish': status}">
   <i class="fa fa-clock-o timer-icon"></i>
-  <span class="timer-counter">01:53</span>
+  <span class="timer-counter">{{timer}}</span>
+  <span class="timer-type">Tempo em segundos</span>
 </div>

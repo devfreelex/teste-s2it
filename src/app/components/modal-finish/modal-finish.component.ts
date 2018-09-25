@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TimerService } from '../../services/timer.service';
 
 @Component({
   selector: 'c-modal-finish',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalFinishComponent implements OnInit {
 
-  constructor() { }
+  status: boolean;
+  score: number;
+
+  constructor(private timeService: TimerService) {
+    this.score = 0;
+  }
+
+  closeModal () {
+    this.score = 0;
+    this.status = false;
+    window.location.hash = '/#';
+  }
 
   ngOnInit() {
+    this.timeService.showScore.subscribe(value => this.status = value);
   }
 
 }

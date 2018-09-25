@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CharacterModel} from '../../models/character.model';
 import { Observable, Subscription } from 'rxjs';
 import { CharacterService } from '../../services/character.service';
+import { TimerService } from '../../services/timer.service';
 
 @Component({
   selector: 'app-game',
@@ -13,7 +14,8 @@ export class GameComponent implements OnInit, OnDestroy {
   characters: Observable<CharacterModel[]>;
 
   constructor(
-    private characterService: CharacterService
+    private characterService: CharacterService,
+    private timeService: TimerService
     ) {}
 
   readCharacters(): void {
@@ -26,11 +28,18 @@ export class GameComponent implements OnInit, OnDestroy {
     this.characterService.pageNav.subscribe( page => {
       this.characterService.getData(`people/?page=${page}`).subscribe( state => {
         this.characters = state['results'];
-      })
-    })
+      });
+    });
+  }
+
+  isValidStatusGame () {
+    if (!this.timeService.getStatusGame()) {
+      window.location.hash = '#/';
+    }
   }
 
   ngOnInit() {
+    this.isValidStatusGame();
     this.readCharacters();
     this.pagination();
   }
